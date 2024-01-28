@@ -1,0 +1,14 @@
+---
+apiVersion: v2
+description: A basic chart to deploy a Palworld dedicated servers.
+name: palworld-k8s
+type: application
+version: 0.0.0
+appVersion: "v0.17"
+kubeVersion: ">=1.26.0-0"
+sources:
+  - https://github.com/bdelwood/palworld-k8s
+keywords:
+  - steam
+  - palworld
+
