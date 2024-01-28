@@ -26,7 +26,7 @@ By default, the chart will provision a PVC using the default StorageClass. You c
 
 # Configuration
 
-Full configuration options are detailed in the [Chart readme](/chart/palworld-k8s/README.md).
+Full configuration options are detailed in the [Chart readme](https://github.com/bdelwood/palworld-k8s/tree/master/chart/palworld-k8s/README.md).
 
 # Roadmap
 
