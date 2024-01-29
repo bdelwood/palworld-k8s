@@ -1,6 +1,6 @@
 ---
 apiVersion: v2
-description: A basic chart to deploy a Palworld dedicated servers.
+description: A basic chart to deploy Palworld dedicated servers.
 name: palworld-k8s
 type: application
 version: 0.1.0
