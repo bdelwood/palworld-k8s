@@ -9,7 +9,7 @@ helm repo add palworld-k8s https://bdelwood.github.io/palworld-k8s/
 helm repo update
 helm install palworld-server palworld-k8s/palworld-k8s  \
   --set gameServer.serverName=palworld-example \
-  --set password=changeme \
+  --set gameServer.password=changeme \
 ```
 
 By default, the server is not configured as a community server, and RCON is enabled.
