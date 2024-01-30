@@ -1,6 +1,6 @@
 # palworld-k8s
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.17](https://img.shields.io/badge/AppVersion-v0.17-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.19](https://img.shields.io/badge/AppVersion-v0.19-informational?style=flat-square)
 
 A basic chart to deploy Palworld dedicated servers.
 
@@ -18,6 +18,10 @@ Kubernetes: `>=1.26.0-0`
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity rules for pod scheduling. |
 | fullnameOverride | string | `""` | Override the full name of the chart. Default is a combination of release name and chart name. |
+| gameServer.backup.cron_expression | string | `"0 0 * * *"` | Cron expression for backup scheduling. Defines when the backups should be triggered. The default value here schedules a backup at midnight every day. Use standard cron format. |
+| gameServer.backup.delete_old_backups | bool | `false` | Flag to decide whether to delete old backups. If set to true, backups older than a specified number of days will be deleted. |
+| gameServer.backup.enabled | bool | `true` | Enable or disable automatic backups. |
+| gameServer.backup.old_backup_days | int | `30` | The number of days to keep old backups. If `delete_old_backups` is enabled, backups older than this number of days will be deleted. |
 | gameServer.community.enabled | bool | `false` | Enable if you want your server to show up as a community server. |
 | gameServer.community.service.nodePort | int | `nil` | Node port a community server (for NodePort service type). |
 | gameServer.community.service.port | int | `27015` | Service port for a community server. |
@@ -29,6 +33,7 @@ Kubernetes: `>=1.26.0-0`
 | gameServer.serverName | string | `""` | Custom server name. |
 | gameServer.service.nodePort | int | `nil` | Node port for the game server (for NodePort service type). |
 | gameServer.service.port | int | `8211` | Service port for the game server. |
+| gameServer.world_parameters | object |  | Configure the game world settings. Use quotes to avoid validation issues. Accepted values are given [here](https://github.com/thijsvanloef/palworld-server-docker/blob/main/.env.example) |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.registry | string | `"docker.io"` | Container registry for the image. |
 | image.repository | string | `"thijsvanloef/palworld-server-docker"` | Image repository |

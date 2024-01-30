@@ -55,6 +55,77 @@ gameServer:
       port: 27015
       # -- (int) Node port a community server (for NodePort service type).
       nodePort: 
+  # -- (object) Configure the game world settings.
+  # Use quotes to avoid validation issues.
+  # Accepted values are given [here](https://github.com/thijsvanloef/palworld-server-docker/blob/main/.env.example)
+  # @notationType -- bigValue
+  world_parameters:
+    DIFFICULTY: "None"
+    DAYTIME_SPEEDRATE: "1.000000"
+    NIGHTTIME_SPEEDRATE: "1.000000"
+    EXP_RATE: "1.000000"
+    PAL_CAPTURE_RATE: "1.000000"
+    PAL_SPAWN_NUM_RATE: "1.000000"
+    PAL_DAMAGE_RATE_ATTACK: "1.000000"
+    PAL_DAMAGE_RATE_DEFENSE: "1.000000"
+    PLAYER_DAMAGE_RATE_ATTACK: "1.000000"
+    PLAYER_DAMAGE_RATE_DEFENSE: "1.000000"
+    PLAYER_STOMACH_DECREASE_RATE: "1.000000"
+    PLAYER_STAMINA_DECREASE_RATE: "1.000000"
+    PLAYER_AUTO_HP_REGEN_RATE: "1.000000"
+    PLAYER_AUTO_HP_REGEN_RATE_IN_SLEEP: "1.000000"
+    PAL_STOMACH_DECREASE_RATE: "1.000000"
+    PAL_STAMINA_DECREASE_RATE: "1.000000"
+    PAL_AUTO_HP_REGEN_RATE: "1.000000"
+    PAL_AUTO_HP_REGEN_RATE_IN_SLEEP: "1.000000"
+    BUILD_OBJECT_DAMAGE_RATE: "1.000000"
+    BUILD_OBJECT_DETERIORATION_DAMAGE_RATE: "1.000000"
+    COLLECTION_DROP_RATE: "1.000000"
+    COLLECTION_OBJECT_HP_RATE: "1.000000"
+    COLLECTION_OBJECT_RESPAWN_SPEED_RATE: "1.000000"
+    ENEMY_DROP_ITEM_RATE: "1.000000"
+    DEATH_PENALTY: "All"
+    ENABLE_PLAYER_TO_PLAYER_DAMAGE: "False"
+    ENABLE_FRIENDLY_FIRE: "False"
+    ENABLE_INVADER_ENEMY: "True"
+    ACTIVE_UNKO: "False"
+    ENABLE_AIM_ASSIST_PAD: "True"
+    ENABLE_AIM_ASSIST_KEYBOARD: "False"
+    DROP_ITEM_MAX_NUM: "3000"
+    DROP_ITEM_MAX_NUM_UNKO: "100"
+    BASE_CAMP_MAX_NUM: "128"
+    BASE_CAMP_WORKER_MAXNUM: "15"
+    DROP_ITEM_ALIVE_MAX_HOURS: "1.000000"
+    AUTO_RESET_GUILD_NO_ONLINE_PLAYERS: "False"
+    AUTO_RESET_GUILD_TIME_NO_ONLINE_PLAYERS: "72.00000"
+    GUILD_PLAYER_MAX_NUM: "20"
+    PAL_EGG_DEFAULT_HATCHING_TIME: "72.00000"
+    WORK_SPEED_RATE: "1.000000"
+    IS_MULTIPLAY: "False"
+    IS_PVP: "False"
+    CAN_PICKUP_OTHER_GUILD_DEATH_PENALTY_DROP: "False"
+    ENABLE_NON_LOGIN_PENALTY: "True"
+    ENABLE_FAST_TRAVEL: "True"
+    IS_START_LOCATION_SELECT_BY_MAP: "True"
+    EXIST_PLAYER_AFTER_LOGOUT: "False"
+    ENABLE_DEFENSE_OTHER_GUILD_PLAYER: "False"
+    COOP_PLAYER_MAX_NUM: "4"
+    REGION: ""
+    USEAUTH: "True"
+    BAN_LIST_URL: "https://api.palworldgame.com/api/banlist.txt"
+  backup:
+    # -- Enable or disable automatic backups.
+    enabled: true
+    # -- Cron expression for backup scheduling.
+    # Defines when the backups should be triggered. The default value here schedules
+    # a backup at midnight every day. Use standard cron format.
+    cron_expression: "0 0 * * *"
+    # -- Flag to decide whether to delete old backups.
+    # If set to true, backups older than a specified number of days will be deleted.
+    delete_old_backups: false
+    # -- The number of days to keep old backups.
+    # If `delete_old_backups` is enabled, backups older than this number of days will be deleted.
+    old_backup_days: 30
 
 rcon:
   # -- Enable or disable RCON.

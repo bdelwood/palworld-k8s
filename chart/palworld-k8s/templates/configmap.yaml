@@ -15,3 +15,12 @@ data:
   SERVER_NAME: "{{ regexReplaceAll "\\W+" (default (printf "%s_%s" "palworld" (randAlphaNum 6 | nospace)) .Values.gameServer.serverName) "_" }}"
   SERVER_DESCRIPTION: "{{ .Values.gameServer.serverDescription }}"
   RCON_ENABLED: "{{ .Values.rcon.enabled }}"
+  BACKUP_CRON_EXPRESSION: "{{ .Values.gameServer.backup.cron_expression }}"
+  BACKUP_ENABLED: "{{ .Values.gameServer.backup.enabled }}"
+  DELETE_OLD_BACKUPS: "{{ .Values.gameServer.backup.delete_old_backups }}"
+  OLD_BACKUP_DAYS: "{{ .Values.gameServer.backup.old_backup_days | int }}"
+  {{- if .Values.gameServer.world_parameters }}
+  {{- with .Values.gameServer.world_parameters }}
+  {{- toYaml . | nindent 2 }}
+  {{- end }}
+  {{- end }}

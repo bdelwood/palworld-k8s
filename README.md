@@ -31,4 +31,3 @@ Full configuration options are detailed in the [Chart readme](/chart/palworld-k8
 # Roadmap
 
 - [ ] Implement health check/readiness check
-- [ ] Support editing server settings
