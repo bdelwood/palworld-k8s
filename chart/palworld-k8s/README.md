@@ -18,13 +18,13 @@ Kubernetes: `>=1.26.0-0`
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity rules for pod scheduling. |
 | fullnameOverride | string | `""` | Override the full name of the chart. Default is a combination of release name and chart name. |
-| gameServer.auto_reboot.cron_expression | string | `"0 0 * * *"` |  |
-| gameServer.auto_reboot.enabled | bool | `false` |  |
-| gameServer.auto_reboot.warn_minutes | int | `5` |  |
-| gameServer.auto_update.cron_expression | string | `"0 * * * *"` |  |
-| gameServer.auto_update.enabled | bool | `false` |  |
-| gameServer.auto_update.warn_minutes | int | `30` |  |
-| gameServer.backup.cron_expression | string | `"0 0 * * *"` | Cron expression for backup scheduling. Defines when the backups should be triggered. The default value here schedules a backup at midnight every day. Use standard cron format. |
+| gameServer.auto_reboot.cron_expression | string | `"0 0 * * *"` | Cron expression for automatic reboots. Defines when to reboot. The default value schedules a reboot  at midnight every day. Use standard cron format. |
+| gameServer.auto_reboot.enabled | bool | `false` | Enable or disable automatic pod reboots. This feature is to alleviate some issues seen with memory leaks. |
+| gameServer.auto_reboot.warn_minutes | int | `5` | Time, in minutes, to send a server message to warn users before a reboot.  |
+| gameServer.auto_update.cron_expression | string | `"0 * * * *"` | Cron expression for updates. Defines when the update check should run. The default value checks for updates every hour. Use standard cron format. |
+| gameServer.auto_update.enabled | bool | `false` | Enable or disable automatic updates. |
+| gameServer.auto_update.warn_minutes | int | `30` | Time, in minutes, to send a server message to warn users before an update.  |
+| gameServer.backup.cron_expression | string | `"0 0 * * *"` | Cron expression for backup scheduling. Defines when the backups should be triggered. The default value schedules a backup at midnight every day. Use standard cron format. |
 | gameServer.backup.delete_old_backups | bool | `false` | Flag to decide whether to delete old backups. If set to true, backups older than a specified number of days will be deleted. |
 | gameServer.backup.enabled | bool | `true` | Enable or disable automatic backups. |
 | gameServer.backup.old_backup_days | int | `30` | The number of days to keep old backups. If `delete_old_backups` is enabled, backups older than this number of days will be deleted. |
