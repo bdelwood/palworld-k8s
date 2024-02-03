@@ -1,6 +1,6 @@
 # palworld-k8s
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.19.1](https://img.shields.io/badge/AppVersion-v0.19.1-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.21.0](https://img.shields.io/badge/AppVersion-v0.21.0-informational?style=flat-square)
 
 A basic chart to deploy Palworld dedicated servers.
 
@@ -18,6 +18,12 @@ Kubernetes: `>=1.26.0-0`
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity rules for pod scheduling. |
 | fullnameOverride | string | `""` | Override the full name of the chart. Default is a combination of release name and chart name. |
+| gameServer.auto_reboot.cron_expression | string | `"0 0 * * *"` |  |
+| gameServer.auto_reboot.enabled | bool | `false` |  |
+| gameServer.auto_reboot.warn_minutes | int | `5` |  |
+| gameServer.auto_update.cron_expression | string | `"0 * * * *"` |  |
+| gameServer.auto_update.enabled | bool | `false` |  |
+| gameServer.auto_update.warn_minutes | int | `30` |  |
 | gameServer.backup.cron_expression | string | `"0 0 * * *"` | Cron expression for backup scheduling. Defines when the backups should be triggered. The default value here schedules a backup at midnight every day. Use standard cron format. |
 | gameServer.backup.delete_old_backups | bool | `false` | Flag to decide whether to delete old backups. If set to true, backups older than a specified number of days will be deleted. |
 | gameServer.backup.enabled | bool | `true` | Enable or disable automatic backups. |

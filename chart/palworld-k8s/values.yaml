@@ -126,6 +126,15 @@ gameServer:
     # -- The number of days to keep old backups.
     # If `delete_old_backups` is enabled, backups older than this number of days will be deleted.
     old_backup_days: 30
+  auto_update:
+    enabled: false
+    cron_expression: "0 * * * *"
+    warn_minutes: 30
+  auto_reboot:
+    enabled: false
+    cron_expression: "0 0 * * *"
+    warn_minutes: 5
+
 
 rcon:
   # -- Enable or disable RCON.

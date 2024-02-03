@@ -19,6 +19,12 @@ data:
   BACKUP_ENABLED: "{{ .Values.gameServer.backup.enabled }}"
   DELETE_OLD_BACKUPS: "{{ .Values.gameServer.backup.delete_old_backups }}"
   OLD_BACKUP_DAYS: "{{ .Values.gameServer.backup.old_backup_days | int }}"
+  AUTO_UPDATE_CRON_EXPRESSION: "{{ .Values.gameServer.auto_update.cron_expression }}"
+  AUTO_UPDATE_ENABLED: "{{ .Values.gameServer.auto_update.enabled }}"
+  AUTO_UPDATE_WARN_MINUTES: "{{ .Values.gameServer.auto_update.warn_minutes }}"
+  AUTO_REBOOT_CRON_EXPRESSION: "{{ .Values.gameServer.auto_reboot.cron_expression }}"
+  AUTO_REBOOT_ENABLED: "{{ .Values.gameServer.auto_reboot.enabled }}"
+  AUTO_REBOOT_WARN_MINUTES: "{{ .Values.gameServer.auto_reboot.warn_minutes }}"
   {{- if .Values.gameServer.world_parameters }}
   {{- with .Values.gameServer.world_parameters }}
   {{- toYaml . | nindent 2 }}
