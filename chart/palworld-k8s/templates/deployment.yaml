@@ -45,6 +45,15 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.gameServer.backup.enabled }}
+          lifecycle:
+          preStop:
+            exec:
+              command:
+                - "sh"
+                - "-c"
+                - rcon-cli save && backup
+          {{- end }}
           envFrom:
             - configMapRef:
                 name: {{ include "palworld-k8s.fullname" . }}

@@ -1,6 +1,6 @@
 # palworld-k8s
 
-![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.21.0](https://img.shields.io/badge/AppVersion-v0.21.0-informational?style=flat-square)
+![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.24.2](https://img.shields.io/badge/AppVersion-v0.24.2-informational?style=flat-square)
 
 A basic chart to deploy Palworld dedicated servers.
 
@@ -17,6 +17,7 @@ Kubernetes: `>=1.26.0-0`
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity rules for pod scheduling. |
+| extraEnv | object | `{}` | Define extra environment variables to pass directly to the container. Any env vars which are set by other values will be overridden. Useful for defining the env vars for setting up Discord webhooks. |
 | fullnameOverride | string | `""` | Override the full name of the chart. Default is a combination of release name and chart name. |
 | gameServer.auto_reboot.cron_expression | string | `"0 0 * * *"` | Cron expression for automatic reboots. Defines when to reboot. The default value schedules a reboot  at midnight every day. Use standard cron format. |
 | gameServer.auto_reboot.enabled | bool | `false` | Enable or disable automatic pod reboots. This feature is to alleviate some issues seen with memory leaks. |
