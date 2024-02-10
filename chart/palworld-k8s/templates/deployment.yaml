@@ -47,12 +47,12 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.gameServer.backup.enabled }}
           lifecycle:
-          preStop:
-            exec:
-              command:
-                - "sh"
-                - "-c"
-                - rcon-cli save && backup
+            preStop:
+              exec:
+                command:
+                  - "sh"
+                  - "-c"
+                  - rcon-cli save && backup
           {{- end }}
           envFrom:
             - configMapRef:
