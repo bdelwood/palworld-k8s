@@ -1,6 +1,6 @@
 # palworld-k8s
 
-![Version: 0.4.1](https://img.shields.io/badge/Version-0.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.24.2](https://img.shields.io/badge/AppVersion-v0.24.2-informational?style=flat-square)
+![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.26.0](https://img.shields.io/badge/AppVersion-v0.26.0-informational?style=flat-square)
 
 A basic chart to deploy Palworld dedicated servers.
 
@@ -32,6 +32,7 @@ Kubernetes: `>=1.26.0-0`
 | gameServer.community.enabled | bool | `false` | Enable if you want your server to show up as a community server. |
 | gameServer.community.service.nodePort | int | `nil` | Node port a community server (for NodePort service type). |
 | gameServer.community.service.port | int | `27015` | Service port for a community server. |
+| gameServer.disable_generate_settings | bool | `false` |  |
 | gameServer.existingSecret | string | `""` | Name of an existing secret for the server password. |
 | gameServer.multithreading | bool | `true` | Enable multithreading. |
 | gameServer.password | string | `""` | Server password If one is not provided or an existing secret it not provided, one will be generated. |

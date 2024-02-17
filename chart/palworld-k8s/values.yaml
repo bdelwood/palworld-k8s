@@ -145,6 +145,7 @@ gameServer:
     cron_expression: "0 0 * * *"
     # -- Time, in minutes, to send a server message to warn users before a reboot. 
     warn_minutes: 5
+  disable_generate_settings: false
 
 # -- Define extra environment variables to pass directly to the container.
 # Any env vars which are set by other values will be overridden.
