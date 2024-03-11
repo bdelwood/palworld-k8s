@@ -145,7 +145,13 @@ gameServer:
     cron_expression: "0 0 * * *"
     # -- Time, in minutes, to send a server message to warn users before a reboot. 
     warn_minutes: 5
+    check_if_players_online: false
+  target_manifest_id: null
   disable_generate_settings: false
+  disable_generate_engine: false
+  player_logging:
+    enabled: true
+    poll_period: 5
 
 # -- Define extra environment variables to pass directly to the container.
 # Any env vars which are set by other values will be overridden.

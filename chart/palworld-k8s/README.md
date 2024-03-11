@@ -1,6 +1,6 @@
 # palworld-k8s
 
-![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.28.1](https://img.shields.io/badge/AppVersion-v0.28.1-informational?style=flat-square)
+![Version: 0.7.0](https://img.shields.io/badge/Version-0.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.32.1](https://img.shields.io/badge/AppVersion-v0.32.1-informational?style=flat-square)
 
 A basic chart to deploy Palworld dedicated servers.
 
@@ -19,6 +19,7 @@ Kubernetes: `>=1.26.0-0`
 | affinity | object | `{}` | Affinity rules for pod scheduling. |
 | extraEnv | object | `{}` | Define extra environment variables to pass directly to the container. Any env vars which are set by other values will be overridden. Useful for defining the env vars for setting up Discord webhooks. |
 | fullnameOverride | string | `""` | Override the full name of the chart. Default is a combination of release name and chart name. |
+| gameServer.auto_reboot.check_if_players_online | bool | `false` |  |
 | gameServer.auto_reboot.cron_expression | string | `"0 0 * * *"` | Cron expression for automatic reboots. Defines when to reboot. The default value schedules a reboot  at midnight every day. Use standard cron format. |
 | gameServer.auto_reboot.enabled | bool | `false` | Enable or disable automatic pod reboots. This feature is to alleviate some issues seen with memory leaks. |
 | gameServer.auto_reboot.warn_minutes | int | `5` | Time, in minutes, to send a server message to warn users before a reboot.  |
@@ -32,15 +33,19 @@ Kubernetes: `>=1.26.0-0`
 | gameServer.community.enabled | bool | `false` | Enable if you want your server to show up as a community server. |
 | gameServer.community.service.nodePort | int | `nil` | Node port a community server (for NodePort service type). |
 | gameServer.community.service.port | int | `27015` | Service port for a community server. |
+| gameServer.disable_generate_engine | bool | `false` |  |
 | gameServer.disable_generate_settings | bool | `false` |  |
 | gameServer.existingSecret | string | `""` | Name of an existing secret for the server password. |
 | gameServer.multithreading | bool | `true` | Enable multithreading. |
 | gameServer.password | string | `""` | Server password If one is not provided or an existing secret it not provided, one will be generated. |
+| gameServer.player_logging.enabled | bool | `true` |  |
+| gameServer.player_logging.poll_period | int | `5` |  |
 | gameServer.players | int | `16` | Number of players allowed on the server concurrently. |
 | gameServer.serverDescription | string | `""` | Description for the server. |
 | gameServer.serverName | string | `""` | Custom server name. |
 | gameServer.service.nodePort | int | `nil` | Node port for the game server (for NodePort service type). |
 | gameServer.service.port | int | `8211` | Service port for the game server. |
+| gameServer.target_manifest_id | string | `nil` |  |
 | gameServer.world_parameters | object |  | Configure the game world settings. Use quotes to avoid validation issues. Accepted values are given [here](https://github.com/thijsvanloef/palworld-server-docker/blob/main/.env.example) |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.registry | string | `"docker.io"` | Container registry for the image. |

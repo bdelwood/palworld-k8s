@@ -25,7 +25,12 @@ data:
   AUTO_REBOOT_CRON_EXPRESSION: "{{ .Values.gameServer.auto_reboot.cron_expression }}"
   AUTO_REBOOT_ENABLED: "{{ .Values.gameServer.auto_reboot.enabled }}"
   AUTO_REBOOT_WARN_MINUTES: "{{ .Values.gameServer.auto_reboot.warn_minutes }}"
+  AUTO_REBOOT_EVEN_IF_PLAYERS_ONLINE: "{{ .Values.gameServer.auto_reboot.check_if_players_online }}"
+  TARGET_MANIFEST_ID: "{{ .Values.gameServer.target_manifest_id }}"
   DISABLE_GENERATE_SETTINGS: "{{ .Values.gameServer.disable_generate_settings }}"
+  DISABLE_GENERATE_ENGINE: "{{ .Values.gameServer.disable_generate_engine }}"
+  ENABLE_PLAYER_LOGGING: "{{ .Values.gameServer.player_logging.enabled }}"
+  PLAYER_LOGGING_POLL_PERIOD: "{{ .Values.gameServer.player_logging.poll_period }}"
   {{- if .Values.gameServer.world_parameters }}
   {{- with .Values.gameServer.world_parameters }}
   {{- toYaml . | nindent 2 }}
