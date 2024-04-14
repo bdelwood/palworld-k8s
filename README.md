@@ -1,5 +1,9 @@
 # palworld-k8s
 
+[![GitHub License](https://img.shields.io/github/license/bdelwood/palworld-k8s?style=flat-square)](https://github.com/bdelwood/palworld-k8s/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/bdelwood/palworld-k8s?style=flat-square)](https://github.com/bdelwood/palworld-k8s/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/bdelwood/palworld-k8s/total?style=flat-square)](https://github.com/bdelwood/palworld-k8s/releases)
+
 A Helm chart to deploy a Palworld dedicated server. This chart relies on the [`thijsvanloef/palworld-server-docker`](https://github.com/thijsvanloef/palworld-server-docker) image.
 
 # How to use
@@ -27,8 +31,3 @@ By default, the chart will provision a PVC using the default StorageClass. You c
 # Configuration
 
 Full configuration options are detailed in the [Chart readme](https://github.com/bdelwood/palworld-k8s/tree/master/chart/palworld-k8s/README.md).
-
-# Roadmap
-
-- [ ] Implement health check/readiness check
-- [ ] Support editing server settings
