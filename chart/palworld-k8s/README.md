@@ -1,6 +1,6 @@
 # palworld-k8s
 
-![Version: 0.8.0](https://img.shields.io/badge/Version-0.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.35.1](https://img.shields.io/badge/AppVersion-v0.35.1-informational?style=flat-square)
+![Version: 0.8.1](https://img.shields.io/badge/Version-0.8.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.35.1](https://img.shields.io/badge/AppVersion-v0.35.1-informational?style=flat-square)
 
 A basic chart to deploy Palworld dedicated servers.
 
@@ -63,6 +63,9 @@ Kubernetes: `>=1.26.0-0`
 | persistence.storageClassName | string | `""` | Storage class name for the PVC. |
 | podAnnotations | object | `{}` | Annotations to add to the pod. |
 | podSecurityContext | object | `{}` | Security context for the pod. |
+| probes | object | `{"liveness":{},"readiness":{}}` | Liveness and readiness probes. |
+| probes.liveness | object | `{}` | Liveness probe |
+| probes.readiness | object | `{}` | Readiness probe. |
 | rcon.enabled | bool | `true` | Enable or disable RCON. |
 | rcon.existingSecret | string | `""` | Name of an existing secret for the RCON (admin) password. |
 | rcon.password | string | `""` | RCON (admin) password. If one is not provided and RCON is enabled, one will be generated. |

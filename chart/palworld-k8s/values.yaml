@@ -208,6 +208,25 @@ resources:
     memory: 8Gi
     cpu: 4
 
+# -- Liveness and readiness probes.
+probes:
+  # -- Liveness probe
+  liveness: {}
+  #   exec:
+  #     command:
+  #     - sh
+  #     - -c
+  #     - pgrep PalServer > /dev/null || exit 1
+  #   initialDelaySeconds: 30
+  # -- Readiness probe.
+  readiness: {}
+  #   exec:
+  #     command:
+  #     - sh
+  #     - -c
+  #     - rcon-cli Info | grep -q "Pal Server"
+  #   initialDelaySeconds: 60
+
 serviceAccount:
   # -- Specifies whether a service account should be created.
   create: false

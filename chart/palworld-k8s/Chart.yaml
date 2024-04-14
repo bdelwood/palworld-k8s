@@ -3,7 +3,7 @@ apiVersion: v2
 description: A basic chart to deploy Palworld dedicated servers.
 name: palworld-k8s
 type: application
-version: 0.8.0
+version: 0.8.1
 appVersion: "v0.35.1"
 kubeVersion: ">=1.26.0-0"
 sources:
