@@ -1,6 +1,6 @@
 # palworld-k8s
 
-![Version: 0.7.0](https://img.shields.io/badge/Version-0.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.32.1](https://img.shields.io/badge/AppVersion-v0.32.1-informational?style=flat-square)
+![Version: 0.8.0](https://img.shields.io/badge/Version-0.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.35.1](https://img.shields.io/badge/AppVersion-v0.35.1-informational?style=flat-square)
 
 A basic chart to deploy Palworld dedicated servers.
 
@@ -19,7 +19,7 @@ Kubernetes: `>=1.26.0-0`
 | affinity | object | `{}` | Affinity rules for pod scheduling. |
 | extraEnv | object | `{}` | Define extra environment variables to pass directly to the container. Any env vars which are set by other values will be overridden. Useful for defining the env vars for setting up Discord webhooks. |
 | fullnameOverride | string | `""` | Override the full name of the chart. Default is a combination of release name and chart name. |
-| gameServer.auto_reboot.check_if_players_online | bool | `false` |  |
+| gameServer.auto_reboot.check_if_players_online | bool | `false` | Check if players are online before auto rebooting. |
 | gameServer.auto_reboot.cron_expression | string | `"0 0 * * *"` | Cron expression for automatic reboots. Defines when to reboot. The default value schedules a reboot  at midnight every day. Use standard cron format. |
 | gameServer.auto_reboot.enabled | bool | `false` | Enable or disable automatic pod reboots. This feature is to alleviate some issues seen with memory leaks. |
 | gameServer.auto_reboot.warn_minutes | int | `5` | Time, in minutes, to send a server message to warn users before a reboot.  |
@@ -33,14 +33,16 @@ Kubernetes: `>=1.26.0-0`
 | gameServer.community.enabled | bool | `false` | Enable if you want your server to show up as a community server. |
 | gameServer.community.service.nodePort | int | `nil` | Node port a community server (for NodePort service type). |
 | gameServer.community.service.port | int | `27015` | Service port for a community server. |
-| gameServer.disable_generate_engine | bool | `false` |  |
-| gameServer.disable_generate_settings | bool | `false` |  |
+| gameServer.disable_generate_engine | bool | `false` | Whether to generate Engine.ini from environment variables (passed from values). |
+| gameServer.disable_generate_settings | bool | `false` | Whether to generate PalWorldSettings.ini from environment variables (passed from values). |
 | gameServer.existingSecret | string | `""` | Name of an existing secret for the server password. |
 | gameServer.multithreading | bool | `true` | Enable multithreading. |
 | gameServer.password | string | `""` | Server password If one is not provided or an existing secret it not provided, one will be generated. |
-| gameServer.player_logging.enabled | bool | `true` |  |
-| gameServer.player_logging.poll_period | int | `5` |  |
+| gameServer.player_logging.enabled | bool | `true` | Whether to announce and log when players join or leave |
+| gameServer.player_logging.poll_period | int | `5` | Time, in seconds, to poll for player changes  |
 | gameServer.players | int | `16` | Number of players allowed on the server concurrently. |
+| gameServer.rest_api.enabled | bool | `false` | Whether to enable the [REST API](https://tech.palworldgame.com/api/rest-api/palwold-rest-api/). DO NOT EXPOSE TO THE PUBLIC INTERNET.  |
+| gameServer.rest_api.port | int | `8212` |  |
 | gameServer.serverDescription | string | `""` | Description for the server. |
 | gameServer.serverName | string | `""` | Custom server name. |
 | gameServer.service.nodePort | int | `nil` | Node port for the game server (for NodePort service type). |

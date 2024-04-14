@@ -31,6 +31,8 @@ data:
   DISABLE_GENERATE_ENGINE: "{{ .Values.gameServer.disable_generate_engine }}"
   ENABLE_PLAYER_LOGGING: "{{ .Values.gameServer.player_logging.enabled }}"
   PLAYER_LOGGING_POLL_PERIOD: "{{ .Values.gameServer.player_logging.poll_period }}"
+  REST_API_ENABLED: "{{ .Values.gameServer.rest_api.enabled }}"
+  REST_API_PORT: "{{ .Values.gameServer.rest_api.port }}"
   {{- if .Values.gameServer.world_parameters }}
   {{- with .Values.gameServer.world_parameters }}
   {{- toYaml . | nindent 2 }}

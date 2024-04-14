@@ -145,13 +145,24 @@ gameServer:
     cron_expression: "0 0 * * *"
     # -- Time, in minutes, to send a server message to warn users before a reboot. 
     warn_minutes: 5
+    # -- Check if players are online before auto rebooting.
     check_if_players_online: false
+  # - 
   target_manifest_id: null
+  # -- Whether to generate PalWorldSettings.ini from environment variables (passed from values).
   disable_generate_settings: false
+  # -- Whether to generate Engine.ini from environment variables (passed from values).
   disable_generate_engine: false
   player_logging:
+    # -- Whether to announce and log when players join or leave
     enabled: true
+    # -- Time, in seconds, to poll for player changes 
     poll_period: 5
+  rest_api:
+    # -- Whether to enable the [REST API](https://tech.palworldgame.com/api/rest-api/palwold-rest-api/).
+    # DO NOT EXPOSE TO THE PUBLIC INTERNET. 
+    enabled: false
+    port: 8212
 
 # -- Define extra environment variables to pass directly to the container.
 # Any env vars which are set by other values will be overridden.
