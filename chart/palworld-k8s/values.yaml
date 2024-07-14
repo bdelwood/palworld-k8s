@@ -149,7 +149,7 @@ gameServer:
     warn_minutes: 5
     # -- Check if players are online before auto rebooting.
     check_if_players_online: false
-  # - 
+  # -- Locks game version to specific manifest ID from Steam Download Depot.
   target_manifest_id: null
   # -- Whether to generate PalWorldSettings.ini from environment variables (passed from values).
   disable_generate_settings: false

@@ -49,7 +49,7 @@ Kubernetes: `>=1.26.0-0`
 | gameServer.serverName | string | `""` | Custom server name. |
 | gameServer.service.nodePort | int | `nil` | Node port for the game server (for NodePort service type). |
 | gameServer.service.port | int | `8211` | Service port for the game server. |
-| gameServer.target_manifest_id | string | `nil` |  |
+| gameServer.target_manifest_id | string | `nil` | Locks game version to specific manifest ID from Steam Download Depot. |
 | gameServer.world_parameters | object |  | Configure the game world settings. Use quotes to avoid validation issues. Accepted values are given [here](https://github.com/thijsvanloef/palworld-server-docker/blob/main/.env.example) |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.registry | string | `"docker.io"` | Container registry for the image. |
