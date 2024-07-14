@@ -29,6 +29,8 @@ service:
   type: LoadBalancer
 
 gameServer:
+  # -- Configure the server for Steam or Xbox players.
+  platform: "steam"
   # -- Number of players allowed on the server concurrently.
   players: 16
   # -- Enable multithreading.
@@ -163,6 +165,8 @@ gameServer:
     # DO NOT EXPOSE TO THE PUBLIC INTERNET. 
     enabled: false
     port: 8212
+  # -- Install the beta Palworld dedicated server.
+  install_beta_insider: false
 
 # -- Define extra environment variables to pass directly to the container.
 # Any env vars which are set by other values will be overridden.

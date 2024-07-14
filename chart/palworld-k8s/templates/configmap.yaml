@@ -7,6 +7,7 @@ metadata:
     {{- include "palworld-k8s.labels" . | nindent 4 }}
 data:
   TZ: "{{ .Values.tz }}"
+  ALLOW_CONNECT_PLATFORM: "{{ title (lower .Values.gameServer.platform) }}"
   PLAYERS: "{{ .Values.gameServer.players | int }}"
   MULTITHREADING: "{{ .Values.gameServer.multithreading }}"
   COMMUNITY: "{{ .Values.gameServer.community.enabled }}"
@@ -33,6 +34,7 @@ data:
   PLAYER_LOGGING_POLL_PERIOD: "{{ .Values.gameServer.player_logging.poll_period }}"
   REST_API_ENABLED: "{{ .Values.gameServer.rest_api.enabled }}"
   REST_API_PORT: "{{ .Values.gameServer.rest_api.port }}"
+  INSTALL_BETA_INSIDER: "{{ .Values.gameServer.install_beta_insider }}"
   {{- if .Values.gameServer.world_parameters }}
   {{- with .Values.gameServer.world_parameters }}
   {{- toYaml . | nindent 2 }}

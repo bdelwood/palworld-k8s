@@ -1,6 +1,6 @@
 # palworld-k8s
 
-![Version: 0.9.0](https://img.shields.io/badge/Version-0.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.37.0](https://img.shields.io/badge/AppVersion-v0.37.0-informational?style=flat-square)
+![Version: 0.10.0](https://img.shields.io/badge/Version-0.10.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.38.2](https://img.shields.io/badge/AppVersion-v0.38.2-informational?style=flat-square)
 
 A basic chart to deploy Palworld dedicated servers.
 
@@ -36,8 +36,10 @@ Kubernetes: `>=1.26.0-0`
 | gameServer.disable_generate_engine | bool | `false` | Whether to generate Engine.ini from environment variables (passed from values). |
 | gameServer.disable_generate_settings | bool | `false` | Whether to generate PalWorldSettings.ini from environment variables (passed from values). |
 | gameServer.existingSecret | string | `""` | Name of an existing secret for the server password. |
+| gameServer.install_beta_insider | bool | `false` | Install the beta Palworld dedicated server. |
 | gameServer.multithreading | bool | `true` | Enable multithreading. |
 | gameServer.password | string | `""` | Server password If one is not provided or an existing secret it not provided, one will be generated. |
+| gameServer.platform | string | `"steam"` | Configure the server for Steam or Xbox players. |
 | gameServer.player_logging.enabled | bool | `true` | Whether to announce and log when players join or leave |
 | gameServer.player_logging.poll_period | int | `5` | Time, in seconds, to poll for player changes  |
 | gameServer.players | int | `16` | Number of players allowed on the server concurrently. |
