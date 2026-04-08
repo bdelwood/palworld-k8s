@@ -212,24 +212,38 @@ resources:
     memory: 8Gi
     cpu: 4
 
-# -- Liveness and readiness probes.
+# -- Startup, liveness, and readiness probes.
 probes:
-  # -- Liveness probe
+  # -- Startup probe. Gates liveness/readiness until the server is up.
+  startup: {}
+  #   exec:
+  #     command:
+  #     - sh
+  #     - -c
+  #     - pgrep -f PalServer > /dev/null || exit 1
+  #   periodSeconds: 10
+  #   failureThreshold: 60
+  #   timeoutSeconds: 5
+  # -- Liveness probe. `pgrep -f` avoids the 15-char comm-name truncation.
   liveness: {}
   #   exec:
   #     command:
   #     - sh
   #     - -c
-  #     - pgrep PalServer > /dev/null || exit 1
-  #   initialDelaySeconds: 30
-  # -- Readiness probe.
+  #     - pgrep -f PalServer > /dev/null || exit 1
+  #   periodSeconds: 30
+  #   failureThreshold: 5
+  #   timeoutSeconds: 5
+  # -- Readiness probe. Requires RCON_ENABLED=true; `-a` is required in exec context.
   readiness: {}
   #   exec:
   #     command:
   #     - sh
   #     - -c
-  #     - rcon-cli Info | grep -q "Pal Server"
-  #   initialDelaySeconds: 60
+  #     - rcon-cli -a 127.0.0.1:25575 Info | grep -q "Welcome"
+  #   periodSeconds: 30
+  #   failureThreshold: 10
+  #   timeoutSeconds: 5
 
 serviceAccount:
   # -- Specifies whether a service account should be created.
